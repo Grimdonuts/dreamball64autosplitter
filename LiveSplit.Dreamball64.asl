@@ -1,7 +1,7 @@
 state("DreamBall64")
 {
 	int currentLevel : 0x01313C0, 0x5E4, 0xB0;
-	bool levelCompleted : 0x001FFA0, 0x264;
+	bool levelCompleted : 0x0019FE4C;
 }
 
 startup
