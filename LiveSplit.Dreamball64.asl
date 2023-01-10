@@ -32,10 +32,8 @@ start
 
 split
 {
-	if (settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && current.currentLevel != 70) {
-		vars.previousLevel = current.currentLevel;
-		return true;
-	} else if (current.levelCompleted && current.currentLevel == 70 && vars.previousLevel != current.currentLevel) {
+	if (settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && current.currentLevel != 70
+	|| current.levelCompleted && current.currentLevel == 70 && vars.previousLevel != current.currentLevel) {
 		vars.previousLevel = current.currentLevel;
 		return true;
 	}
