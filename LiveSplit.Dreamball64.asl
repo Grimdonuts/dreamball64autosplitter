@@ -1,7 +1,7 @@
 state("DreamBall64")
 {
 	int currentLevel : 0x01313C0, 0x5E4, 0xB0;
-	bool levelCompleted : 0x0019FE4C;
+	bool levelCompleted : 0x001FFA0, 0x264;
 }
 
 startup
@@ -32,6 +32,7 @@ start
 
 split
 {
+	print(current.levelCompleted + "");
 	if (settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && current.currentLevel != 70
 	|| current.levelCompleted && current.currentLevel == 70 && vars.previousLevel != current.currentLevel) {
 		vars.previousLevel = current.currentLevel;
