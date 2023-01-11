@@ -6,12 +6,12 @@ state("DreamBall64")
 
 startup
 {
-	settings.Add("10", true, "Level 10");
-	settings.Add("20", true, "Level 20");
-	settings.Add("30", true, "Level 30");
-	settings.Add("40", true, "Level 40");
-	settings.Add("50", true, "Level 50");
-	settings.Add("60", true, "Level 60");
+	settings.Add("11", true, "Level 10");
+	settings.Add("21", true, "Level 20");
+	settings.Add("31", true, "Level 30");
+	settings.Add("41", true, "Level 40");
+	settings.Add("51", true, "Level 50");
+	settings.Add("61", true, "Level 60");
 	settings.Add("70", true, "Level 70");
 }
 
@@ -32,9 +32,8 @@ start
 
 split
 {
-	print(current.levelCompleted + "");
 	if (settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && current.currentLevel != 70
-	|| current.levelCompleted && current.currentLevel == 70 && vars.previousLevel != current.currentLevel) {
+	|| current.levelCompleted && current.currentLevel == 70 && settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel) {
 		vars.previousLevel = current.currentLevel;
 		return true;
 	}
