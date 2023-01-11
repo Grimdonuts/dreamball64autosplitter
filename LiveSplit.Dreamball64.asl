@@ -18,11 +18,13 @@ startup
 onStart
 {
 	vars.previousLevel = 0;
+	vars.onFinalLevel = false;
 }
 
 init
 {
 	vars.previousLevel = 0;
+	vars.onFinalLevel = false;
 }
 
 start
@@ -33,11 +35,13 @@ start
 split
 {
 	if (settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && current.currentLevel != 70
-	|| current.levelCompleted && current.currentLevel == 70 && settings[current.currentLevel.ToString()] && vars.previousLevel == current.currentLevel) {
+	|| current.levelCompleted && current.currentLevel == 70 && settings[current.currentLevel.ToString()] && vars.previousLevel != current.currentLevel && vars.onFinalLevel) {
 		vars.previousLevel = current.currentLevel;
 		return true;
-	} else if (current.currentLevel == 70 && vars.previousLevel == 69 && !current.levelCompleted) {
-		vars.previousLevel = current.currentLevel;
+	}
+
+	if (!current.levelCompleted && current.currentLevel == 70 && !vars.onFinalLevel) {
+		vars.onFinalLevel = true;
 	}
 }
 
